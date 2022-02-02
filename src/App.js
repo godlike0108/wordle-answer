@@ -12,12 +12,13 @@ function App() {
   return (
     <div className="page">
       <header className="title">
-        今天的 Wordle 是什麼答案呢？
+        今天的 <a href="https://words.hk/static/bopomofo-wordle/">Wordle</a> 是什麼答案呢？
       </header>
       <div className="body">{ans}</div>
       <div className="action">
         <button onClick={calcWordleAns}>公佈解答</button>
       </div>
+      <footer className="footer">毀滅 Wordle 的老毅</footer>
     </div>
   );
 }

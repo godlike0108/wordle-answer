@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react'
+import { ANS } from './constants'
 import './App.css';
 
+
 function App() {
+  const [ans, setAns] = useState('')
+  const calcWordleAns = () => {
+    setAns(ANS[(Math.round((new Date().setHours(0, 0, 0, 0) - new Date(2021, 5, 19, 0, 0, 0, 0).setHours(0, 0, 0, 0)) / 864e5)) % ANS.length])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="page">
+      <header className="title">
+        今天的 Wordle 是什麼答案呢？
       </header>
+      <div className="body">{ans}</div>
+      <div className="action">
+        <button onClick={calcWordleAns}>公佈解答</button>
+      </div>
     </div>
   );
 }
